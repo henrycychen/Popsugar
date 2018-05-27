@@ -1,5 +1,9 @@
 package henry.popsugar.com.popsugar;
 
+/*
+ * 
+ */
+
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
@@ -53,7 +57,7 @@ public class BasePage {
 		}
 	}
 	
-	public void seeElementInArray(Collection<String> collection) {
+	public void seeElementInHashMap(Collection<String> collection) {
 		for (String values : collection) {
 			seeElement(values);
 		}

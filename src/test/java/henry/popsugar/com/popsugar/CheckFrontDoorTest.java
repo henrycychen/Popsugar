@@ -10,17 +10,18 @@ public class CheckFrontDoorTest extends BaseTest{
 		//Go to the front door web page
 		FD.goToHomePage("https://www.popsugar.com");
 		//Check the common web elements on the front door
-		FD.seeElementInArray(FD.getFrontDoorElements().values());
+		FD.seeElementInHashMap(FD.getFrontDoorElements().values());
 		//Check top shelf elements
-		FD.seeElementInArray(FD.getTopShelfElements().values());	
+		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
 		//Check top story elements
-		FD.seeElementInArray(FD.getTopStoryElements().values());	
+		FD.seeElementInHashMap(FD.getTopStoryElements().values());	
 		//Check latest news elements
-		FD.seeElementInArray(FD.getLatestNewsElements().values());
+		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
 		//Check social shares elements
-		FD.seeElementInArray(FD.getSocialSharesElements().values());
+		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
 	}
 	
+	//This test will fail on purpose
 	@Test
 	public void bvtCheckUKFrontDoor() {
 		BaseFrontDoorPage FD = new BaseFrontDoorPage(driver, wait);
@@ -29,22 +30,22 @@ public class CheckFrontDoorTest extends BaseTest{
 		FD.click("#_evidon-banner-acceptbutton");
 		//Click GDPR cookie message #1
 		FD.click("#btn-ok");
-		FD.seeElementInArray(FD.getFrontDoorElements().values());
-		FD.seeElementInArray(FD.getTopShelfElements().values());	
-		FD.seeElementInArray(FD.getTopStoryElements().values());	
-		FD.seeElementInArray(FD.getLatestNewsElements().values());
+		FD.seeElementInHashMap(FD.getFrontDoorElements().values());
+		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
+		FD.seeElementInHashMap(FD.getTopStoryElements().values());	
+		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
 		//This will fail because they do not have twitter
-		FD.seeElementInArray(FD.getSocialSharesElements().values());
+		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
 	}
 	
 	@Test
 	public void bvtCheckAUFrontDoor() {
 		BaseFrontDoorPage FD = new BaseFrontDoorPage(driver, wait);
 		FD.goToHomePage("https://www.popsugar.com.au");
-		FD.seeElementInArray(FD.getFrontDoorElements().values());
-		FD.seeElementInArray(FD.getTopShelfElements().values());	
-		FD.seeElementInArray(FD.getTopStoryElements().values());	
-		FD.seeElementInArray(FD.getLatestNewsElements().values());
-		FD.seeElementInArray(FD.getSocialSharesElements().values());
+		FD.seeElementInHashMap(FD.getFrontDoorElements().values());
+		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
+		FD.seeElementInHashMap(FD.getTopStoryElements().values());	
+		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
+		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
 	}	
 }

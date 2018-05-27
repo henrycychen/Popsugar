@@ -1,5 +1,9 @@
 package henry.popsugar.com.popsugar;
 
+/*
+ * 
+ */
+
 import org.junit.Test;
 
 public class CheckFrontDoorTest extends BaseTest{
@@ -27,7 +31,7 @@ public class CheckFrontDoorTest extends BaseTest{
 		FD.goToHomePage("https://www.popsugar.co.uk");
 		//Click GDPR cookie message #1
 		FD.click("#_evidon-banner-acceptbutton");
-		//Click GDPR cookie message #1
+		//Click GDPR cookie message #2
 		FD.click("#btn-ok");
 		FD.seeElementInArray(FD.getFrontDoorElements().values());
 		FD.seeElementInArray(FD.getTopShelfElements().values());	

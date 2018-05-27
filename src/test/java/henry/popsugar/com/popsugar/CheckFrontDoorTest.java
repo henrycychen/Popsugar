@@ -21,15 +21,15 @@ public class CheckFrontDoorTest extends BaseTest{
 		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
 	}
 	
-	//This test will fail on purpose
+	/*
+	 * This test will fail on purpose to show that not all front doors are 
+	 * the same. It has a GDPR consent and also different social shares
+	 */
 	@Test
 	public void bvtCheckUKFrontDoor() {
 		BaseFrontDoorPage FD = new BaseFrontDoorPage(driver, wait);
 		FD.goToHomePage("https://www.popsugar.co.uk");
-		//Click GDPR cookie message #1
-		FD.click("#_evidon-banner-acceptbutton");
-		//Click GDPR cookie message #1
-		FD.click("#btn-ok");
+		FD.removeGDPRConsent();
 		FD.seeElementInHashMap(FD.getFrontDoorElements().values());
 		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
 		FD.seeElementInHashMap(FD.getTopStoryElements().values());	

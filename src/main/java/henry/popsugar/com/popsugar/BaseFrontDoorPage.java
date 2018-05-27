@@ -75,6 +75,11 @@ public class BaseFrontDoorPage extends BasePage{
 		return elements;
 	}
 	
+	public void removeGDPRConsent() {
+		click("#_evidon-banner-acceptbutton");
+		click("#btn-ok");
+	}
+	
 	//Page Methods
 	public void goToHomePage(String baseURL) {
 		driver.get(baseURL);

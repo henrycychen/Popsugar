@@ -2,7 +2,13 @@ package henry.popsugar.com.popsugar;
 
 import org.junit.Test;
 
-public class CheckFrontDoorTest extends BaseTest{
+/*
+ * This test suite will not work on purpose. You must refactor the name of test
+ * to CheckFrontDoorTest for this to be run on maven. The purpose of this was 
+ * to run locally.
+ */
+
+public class CheckFrontDoorExampleWillNotWork extends BaseTest{
 
 	@Test
 	public void bvtCheckUSFrontDoor() {
@@ -18,7 +24,8 @@ public class CheckFrontDoorTest extends BaseTest{
 		//Check latest news elements
 		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
 		//Check social shares elements
-		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
+		String[] noSocial = {""};
+		FD.seeElementInHashMap(FD.getSocialSharesElements(noSocial).values());
 	}
 	
 	/*
@@ -34,8 +41,9 @@ public class CheckFrontDoorTest extends BaseTest{
 		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
 		FD.seeElementInHashMap(FD.getTopStoryElements().values());	
 		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
-		//This will fail because they do not have twitter
-		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
+		// Remove Twitter and Google Plus from the Hashmap
+		String[] noSocial = {"shareTwitter", "shareGplus"};
+		FD.seeElementInHashMap(FD.getSocialSharesElements(noSocial).values());
 	}
 	
 	@Test
@@ -46,6 +54,7 @@ public class CheckFrontDoorTest extends BaseTest{
 		FD.seeElementInHashMap(FD.getTopShelfElements().values());	
 		FD.seeElementInHashMap(FD.getTopStoryElements().values());	
 		FD.seeElementInHashMap(FD.getLatestNewsElements().values());
-		FD.seeElementInHashMap(FD.getSocialSharesElements().values());
+		String[] noSocial = {""};
+		FD.seeElementInHashMap(FD.getSocialSharesElements(noSocial).values());
 	}	
 }

@@ -1,15 +1,19 @@
 package henry.popsugar.com.popsugar;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.HashMap;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BaseFrontDoorPage extends BasePage{
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class BaseDockerGridFrontDoorPage extends BaseDockerGridPage{
 	
-	//Constructor
-	public BaseFrontDoorPage(WebDriver driver, WebDriverWait wait) {
-		super(driver, wait);
-		System.out.println("BaseFrontDoorPage class initialized");
+	public BaseDockerGridFrontDoorPage(RemoteWebDriver driver) {
+		super(driver);
+		System.out.println("HomeRemotePage class initialized");
 	}
 	
 	//Page Variables
@@ -86,8 +90,15 @@ public class BaseFrontDoorPage extends BasePage{
 	}
 	
 	//Page Methods
-	public void goToHomePage(String baseURL) {
+	public void goToHomePage(String browser, String version, String baseURL) throws MalformedURLException, InterruptedException {
+	    	DesiredCapabilities capabilities = new DesiredCapabilities();
+	    	capabilities.setBrowserName(browser);
+	    	capabilities.setVersion(version);
+	    	capabilities.setCapability("enableVNC", true);
+		this.driver = new RemoteWebDriver(
+	    	    URI.create("http://165.227.9.145:4444/wd/hub/").toURL(), 
+	    	    capabilities
+	    	);
 		driver.get(baseURL);
 	}
-	
 }

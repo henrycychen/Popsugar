@@ -1,29 +1,21 @@
 package henry.popsugar.com.popsugar;
 
-/*
- * 
- */
-
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /*
  * BasePage class contains common methods for all page classes
  */
 
-public class BasePage {
-	public WebDriver driver;
-	public WebDriverWait wait;
-	
+public class BaseDockerGridPage {
+	public RemoteWebDriver driver;
+
 	//Constructor
-	public BasePage(WebDriver driver, WebDriverWait wait) {
+	public BaseDockerGridPage(RemoteWebDriver driver) {
 		this.driver = driver;
-		this.wait = wait;
-		System.out.println("BasePage class initialized");
+		System.out.println("BaseRemotePage class initialized");
 	}
 	
 	//Click Method
@@ -63,5 +55,4 @@ public class BasePage {
 			seeElement(values);
 		}
 	}
-
 }
